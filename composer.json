@@ -1,5 +1,5 @@
 {
-  "name": "silinternational/smartsheet-php-client",
+  "name": "ksidenko/smartsheet-php-client",
   "type": "library",
   "description": "PHP client library for interacting with Smartsheet API",
   "keywords": ["smartsheet"],
@@ -18,6 +18,10 @@
     {
       "name": "Phillip Shipley",
       "email": "phillip_shipley@sil.org"
+    },
+    {
+      "name": "Kirill Sidenko",
+      "email": "sks.develop@gmail.com"
     }
   ],
   "autoload": {
