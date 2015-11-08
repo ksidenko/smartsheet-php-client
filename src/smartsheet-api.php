@@ -1,7 +1,36 @@
 <?php return [
     'baseUrl' => 'https://api.smartsheet.com',
-    'apiVersion' => '1.1',
+    'apiVersion' => '2.0',
     'operations' => [
+        'ListSheetColumns' => [
+            'httpMethod' => 'GET',
+            'uri' => '/{ApiVersion}/sheets/{id}/columns',
+            'responseModel' => 'Column',
+            'parameters' => [
+                'ApiVersion' => [
+                    'required' => true,
+                    'type'     => 'string',
+                    'location' => 'uri',
+                ],
+                'id' => [
+                    'required' => true,
+                    'type'     => 'string',
+                    'location' => 'uri',
+                ],
+            ],
+        ],
+        'ListSheets' => [
+            'httpMethod' => 'GET',
+            'uri' => '/{ApiVersion}/sheets',
+            'responseModel' => 'Sheet',
+            'parameters' => [
+                'ApiVersion' => [
+                    'required' => true,
+                    'type'     => 'string',
+                    'location' => 'uri',
+                ],
+            ],
+        ],
         'ListUsers' => [
             'httpMethod' => 'GET',
             'uri' => '/{ApiVersion}/users',
@@ -38,7 +67,7 @@
         ],
         'GetCurrentUser' => [
             'httpMethod' => 'GET',
-            'uri' => '/{ApiVersion}/user/me',
+            'uri' => '/{ApiVersion}/users/me',
             'responseModel' => 'User',
             'parameters' => [
                 'ApiVersion' => [
@@ -167,6 +196,24 @@
     ],
     'models' => [
         'User' => [
+            'type' => 'object',
+            'properties' => [
+                'statusCode' => ['location' => 'statusCode']
+            ],
+            'additionalProperties' => [
+                'location' => 'json'
+            ]
+        ],
+        'Sheet' => [
+            'type' => 'object',
+            'properties' => [
+                'statusCode' => ['location' => 'statusCode']
+            ],
+            'additionalProperties' => [
+                'location' => 'json'
+            ]
+        ],
+        'Column' => [
             'type' => 'object',
             'properties' => [
                 'statusCode' => ['location' => 'statusCode']
